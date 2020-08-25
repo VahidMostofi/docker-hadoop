@@ -19,4 +19,6 @@ if [ "`ls -A $namedir`" == "" ]; then
   $HADOOP_HOME/bin/hdfs --config $HADOOP_CONF_DIR namenode -format $CLUSTER_NAME
 fi
 
+jupyter notebook --port=8567 --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='uofc' --NotebookApp.password='uofc' &
+
 $HADOOP_HOME/bin/hdfs --config $HADOOP_CONF_DIR namenode

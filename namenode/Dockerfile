@@ -1,4 +1,4 @@
-FROM bde2020/hadoop-base:2.0.0-hadoop3.2.1-java8
+FROM vahidmostofi/hadoop-base
 
 MAINTAINER Ivan Ermilov <ivan.s.ermilov@gmail.com>
 
@@ -11,6 +11,11 @@ VOLUME /hadoop/dfs/name
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh
 
+RUN pip3 install jupyter
+RUN mkdir -p /training
+WORKDIR /training
+
 EXPOSE 9870
+EXPOSE 8567
 
 CMD ["/run.sh"]
